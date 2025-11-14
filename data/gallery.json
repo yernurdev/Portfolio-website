@@ -1,6 +1,6 @@
 [
   {"id":1,"title":"Janarym AI","category":"landing","img":"assets/images/site-1.png","desc":"AI That helps blind people to navigate","url":"https://janarym-ai.web.app/"},
-  {"id":2,"title":"goWell","category":"landing","img":"assets/images/site-2.png","desc":"A digital assistant for schoolchildren – track your mood, keep a diary, and communicate with a supportive AI.","url":"https://gowell-cc836.web.app/"},
+  {"id":2,"title":"goWell","category":"portfolio","img":"assets/images/site-2.png","desc":"A digital assistant for schoolchildren – track your mood, keep a diary, and communicate with a supportive AI.","url":"https://gowell-cc836.web.app/"},
   {"id":3,"title":"Cortex AI","category":"landing","img":"assets/images/site-3.png","desc":"AI for early cancer detection","url":"https://cortexai.asia/"},
   {"id":4,"title":"e11even","category":"landing","img":"assets/images/site-4.png","desc":"My Project studio - mentor","url":"https://yernurdev.github.io/web1_ass8/"}
 ]

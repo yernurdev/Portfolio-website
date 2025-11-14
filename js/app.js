@@ -1,4 +1,4 @@
-// app.js (module) — all logic lives here
+
 
 const $ = (sel, ctx=document) => ctx.querySelector(sel);
 const $$ = (sel, ctx=document) => Array.from((ctx || document).querySelectorAll(sel));
@@ -17,12 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
   enableSmoothAnchorScroll();
 });
 
-/* ===== year ===== */
+/* year  */
 function initYear(){
   $$('#year').forEach(n => n.textContent = new Date().getFullYear());
 }
 
-/* ===== THEME ===== */
+/* THEME */
 const THEME_KEY = 'ywy-theme';
 function initTheme(){
   try {
@@ -39,7 +39,7 @@ function toggleTheme(){
   try { localStorage.setItem(THEME_KEY, isLight ? 'light' : 'dark'); } catch(e){}
 }
 
-/* ===== Register form validation (modal) ===== */
+/* Register form validation */
 function bindRegisterValidation(){
   const form = $('#registerForm');
   if(!form) return;
@@ -92,7 +92,7 @@ function bindRegisterValidation(){
   }
 }
 
-/* ===== Contact form validation ===== */
+/*Contact form validation  */
 function bindContactValidation(){
   const form = $('#contactForm');
   if(!form) return;
@@ -117,7 +117,7 @@ function bindContactValidation(){
   message.addEventListener('input', ()=> $('#contactMessageFeedback').textContent = message.value.trim() ? '' : 'Required');
 }
 
-/* ===== GALLERY (loads JSON) ===== */
+/* GALLERY (loads JSON) */
 let galleryItems = [];
 async function initGalleryIfPresent(){
   const galleryRoot = $('#gallery');
@@ -170,7 +170,7 @@ function applyGalleryFilter(){
   renderGallery(filtered);
 }
 
-/* ===== LIGHTBOX ===== */
+/* LIGHTBOX */
 let currentIndex = 0;
 function openLightbox(index){
   const visible = document.getElementById('lightbox');
@@ -195,7 +195,7 @@ function bindLightboxEvents(){
   });
 }
 
-/* ===== PROJECTS CRUD (localStorage) ===== */
+/*PROJECTS CRUD (localStorage)*/
 const PROJECTS_KEY = 'ywy-projects';
 function loadProjects(){ return JSON.parse(localStorage.getItem(PROJECTS_KEY) || '[]'); }
 function saveProjects(list){ localStorage.setItem(PROJECTS_KEY, JSON.stringify(list)); }
@@ -304,6 +304,8 @@ function enableProjectSearchSort(){
   const sortYear = $('#sortYear');
   if(!search && !sortTitle && !sortYear) return;
 
+//Dynamic Search Functionality
+
   search?.addEventListener('input', ()=> {
     const q = (search.value||'').toLowerCase();
     $$('#projectsTbody tr').forEach(tr => {
@@ -314,8 +316,7 @@ function enableProjectSearchSort(){
   sortTitle?.addEventListener('click', ()=>{
     const list = loadProjects().sort((a,b)=> a.title.localeCompare(b.title));
     saveProjects(list);
-    // re-render by calling initProjectsCRUD render: simplest is to reload page state
-    // but we call render by re-initializing table (function exists in app) - easiest: trigger DOM update
+    
     document.querySelector('#projectsTbody').innerHTML = '';
     list.forEach(p=>{
       const tr = document.createElement('tr');
