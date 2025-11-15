@@ -22,6 +22,7 @@ function initYear(){
   $$('#year').forEach(n => n.textContent = new Date().getFullYear());
 }
 
+
 /* THEME */
 const THEME_KEY = 'ywy-theme';
 function initTheme(){
